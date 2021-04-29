@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import playerActions from "../redux/actions/playerActions";
 import scoreActions from "../redux/actions/scoreActions";
+import utils from "../utils/utils";
 
 function BuyClickItem(props) {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function BuyClickItem(props) {
       onClick={handleClick}
       disabled={player.click >= props.click ? "disabled" : null}
     >
-      +{props.click} ({props.price}p)
+      +{utils.numberFormat(props.click)} ({utils.numberFormat(props.price)}p)
     </button>
   );
 }

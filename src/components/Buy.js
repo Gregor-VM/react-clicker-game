@@ -1,5 +1,6 @@
 import React from "react";
 import BuyClickItem from "./BuyClickItem";
+import MisteryBox from "./MisteryBox";
 
 function Buy() {
   return (
@@ -10,7 +11,10 @@ function Buy() {
         <BuyClickItem click={100} price={10000}></BuyClickItem>
         <BuyClickItem click={1000} price={100000}></BuyClickItem>
         <BuyClickItem click={10000} price={1000000}></BuyClickItem>
+        <BuyClickItem click={100000} price={10000000}></BuyClickItem>
+        <BuyClickItem click={1000000} price={100000000}></BuyClickItem>
       </div>
+      <MisteryBox></MisteryBox>
     </div>
   );
 }

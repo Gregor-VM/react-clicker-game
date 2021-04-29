@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import scoreActions from "../redux/actions/scoreActions";
 import playerActions from "../redux/actions/playerActions";
+import utils from "../utils/utils";
 
 function Score() {
   const player = useSelector((state) => state.player);
@@ -49,7 +50,9 @@ function Score() {
 
   return (
     <div className="d-flex flex-column mt-5">
-      <h1 className="badge bg-primary text-white p-3">Score: {score}</h1>
+      <h1 className="badge bg-primary text-white p-3">
+        Score: {utils.numberFormat(score)}
+      </h1>
       <button
         className="btn btn-success"
         onClick={() => dispatch(scoreActions.sumScore(player.click))}
