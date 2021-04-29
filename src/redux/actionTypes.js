@@ -1,0 +1,9 @@
+const types = {
+  SETSCORE: "SETSCORE",
+  SUMSCORE: "SUMSCORE",
+
+  SETPLAYERCLICK: "SETPLAYERCLICK",
+  SETPLEAYERTIME: "SETPLAYERTIME",
+};
+
+export default types;
