@@ -12,5 +12,11 @@ const actions = {
       payload: click,
     };
   },
+  setDate: (date) => {
+    return {
+      type: actionTypes.SETPLAYERDATE,
+      payload: date,
+    };
+  },
 };
 export default actions;

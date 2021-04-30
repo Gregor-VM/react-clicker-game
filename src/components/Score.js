@@ -49,15 +49,23 @@ function Score() {
   }, [memoizeScoreTimeSum]);
 
   return (
-    <div className="d-flex flex-column mt-5">
-      <h1 className="badge bg-primary text-white p-3">
-        Score: {utils.numberFormat(score)}
-      </h1>
+    <div className="mt-5 row">
+      <div className="col-md-12 d-flex justify-content-between p-0">
+        <h1 className="display-4"> Score: {utils.numberFormat(score)} </h1>
+        <span className="d-flex flex-column justify-content-center col-md-3 p-0">
+          <h1 className="badge bg-secondary text-white">
+            Time: {"+" + utils.numberFormat(player.time) + " per second"}
+          </h1>
+          <h1 className="badge bg-secondary text-white">
+            Clicks: {"+" + utils.numberFormat(player.click) + " per click"}
+          </h1>
+        </span>
+      </div>
       <button
-        className="btn btn-success"
+        className="btn btn-success col-md-12 p-4"
         onClick={() => dispatch(scoreActions.sumScore(player.click))}
       >
-        Click me!
+        <h2 className="font-weight-light">Click me!</h2>
       </button>
     </div>
   );
