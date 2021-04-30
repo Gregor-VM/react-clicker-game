@@ -2,6 +2,11 @@
   height: 100vh;
 }
 
+.display-4 {
+  white-space: nowrap !important;
+  overflow-wrap: clip !important;
+}
+
 @media screen and (max-width: 990px) {
   .h100vh {
     height: 100%;
