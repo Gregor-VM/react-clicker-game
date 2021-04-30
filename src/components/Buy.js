@@ -1,12 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import BuyClickItem from "./BuyClickItem";
 import MisteryBox from "./MisteryBox";
 import Notifications from "./Notifications";
 
 function Buy() {
+  const theme = useSelector((state) => state.theme.theme);
   return (
     <div className="row">
-      <div className="col-md-3 pt-4">
+      <div
+        className={(theme === "light" ? "" : "text-light") + " col-md-3 pt-4"}
+      >
         <h4>Buy Click Powers!</h4>
         <BuyClickItem click={10} price={1000}></BuyClickItem>
         <BuyClickItem click={100} price={10000}></BuyClickItem>

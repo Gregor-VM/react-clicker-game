@@ -7,6 +7,7 @@ import utils from "../utils/utils";
 function Score() {
   const player = useSelector((state) => state.player);
   const score = useSelector((state) => state.score.score);
+  const theme = useSelector((state) => state.theme.theme);
   const dispatch = useDispatch();
 
   const memoizeScoreTimeSum = useCallback(() => {
@@ -51,7 +52,10 @@ function Score() {
   return (
     <div className="mt-5 row">
       <div className="col-md-12 d-flex justify-content-between p-0">
-        <h1 className="display-4"> Score: {utils.numberFormat(score)} </h1>
+        <h1 className={(theme === "light" ? "" : "text-light") + " display-4"}>
+          {" "}
+          Score: {utils.numberFormat(score)}{" "}
+        </h1>
         <span className="d-flex flex-column justify-content-center col-md-3 p-0">
           <h1 className="badge bg-secondary text-white">
             Time: {"+" + utils.numberFormat(player.time) + " per second"}

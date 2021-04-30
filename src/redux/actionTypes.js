@@ -8,6 +8,8 @@ const types = {
 
   SETNOTI: "SETNOTI",
   DELNOTI: "DELNOTI",
+
+  SETTHEME: "SETTHEME",
 };
 
 export default types;
