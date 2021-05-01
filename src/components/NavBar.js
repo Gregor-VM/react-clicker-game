@@ -1,6 +1,9 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import themeActions from "../redux/actions/themeActions";
+import scoreActions from "../redux/actions/scoreActions";
+import playerActions from "../redux/actions/playerActions";
+import notiActions from "../redux/actions/notiActions";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -22,6 +25,16 @@ function NavBar() {
     }
   }, [memoize, themeStorage]);
 
+  const resetStatus = () => {
+    dispatch(scoreActions.setScore(0));
+    dispatch(playerActions.setClick(5));
+    dispatch(playerActions.setTime(1));
+    dispatch(playerActions.setDate(0));
+    dispatch(notiActions.delNoti());
+    localStorage.removeItem("data");
+    localStorage.removeItem("date");
+  };
+
   return (
     <nav
       className={
@@ -31,7 +44,7 @@ function NavBar() {
       }
     >
       <div className="container-fluid">
-        <a href="/">
+        <a href="/#">
           <img
             src="https://cdn.pixabay.com/photo/2013/07/12/19/17/cursor-154478_960_720.png"
             alt="Logo Clicker Game"
@@ -39,9 +52,9 @@ function NavBar() {
             height="48"
             className="mr-2"
           ></img>
-          <a className="navbar-brand" href="/">
+          <span className="navbar-brand" href="/">
             React Clicker Game
-          </a>
+          </span>
         </a>
         <ul className="navbar-nav d-flex flex-row align-items-center ">
           <li className="nav-item mx-3">
@@ -59,14 +72,15 @@ function NavBar() {
             </select>
           </li>
 
-          <li clasNames="nav-item">
+          <li className="nav-item">
             <a
               className={
                 (theme === "light" ? "text-dark" : "text-light") + " nav-link"
               }
-              href="/logout"
+              href="/#"
+              onClick={resetStatus}
             >
-              Logout
+              Reset Game
             </a>
           </li>
         </ul>

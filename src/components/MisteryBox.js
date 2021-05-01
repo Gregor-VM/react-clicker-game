@@ -8,7 +8,9 @@ import utils from "../utils/utils";
 function MisteryBox() {
   const dispatch = useDispatch();
   const score = useSelector((state) => state.score.score);
-  const date = useSelector((state) => state.player.date);
+  const savedDate = localStorage.getItem("date");
+  const appDate = useSelector((state) => state.player.date);
+  const date = savedDate ? savedDate : appDate;
   const time = useSelector((state) => state.player.time);
   const price = time * 100;
   const resTimeMinutes =
@@ -36,6 +38,7 @@ function MisteryBox() {
     dispatch(scoreActions.sumScore(score * randomMultiply));
     if (buy !== true) {
       dispatch(playerActions.setDate(Date.now()));
+      localStorage.setItem("date", Date.now().toString());
     }
   };
 
