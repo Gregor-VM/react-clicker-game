@@ -28,7 +28,7 @@ function NavBar() {
   const resetStatus = () => {
     dispatch(scoreActions.setScore(0));
     dispatch(playerActions.setClick(5));
-    dispatch(playerActions.setTime(1));
+    dispatch(playerActions.setTime(5));
     dispatch(playerActions.setDate(0));
     dispatch(notiActions.delNoti());
     localStorage.removeItem("data");
