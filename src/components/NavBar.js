@@ -44,7 +44,7 @@ function NavBar() {
       }
     >
       <div className="container-fluid">
-        <a href="react-clicker-game/#">
+        <a href="#">
           <img
             src="https://cdn.pixabay.com/photo/2013/07/12/19/17/cursor-154478_960_720.png"
             alt="Logo Clicker Game"
@@ -77,7 +77,7 @@ function NavBar() {
               className={
                 (theme === "light" ? "text-dark" : "text-light") + " nav-link"
               }
-              href="react-clicker-game/#"
+              href="#"
               onClick={resetStatus}
             >
               Reset Game
